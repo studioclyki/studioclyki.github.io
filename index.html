@@ -7,16 +7,26 @@
 <title>Studio Clyki</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
     font-family: 'Segoe UI', Arial;
-    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    background: black;
     color: white;
+}
+
+/* MATRIX FUNDO */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* CONTEÚDO */
+.content {
+    position: relative;
+    z-index: 1;
 }
 
 /* MENU */
@@ -24,10 +34,8 @@ nav {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(10,10,10,0.9);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #222;
-    z-index: 1000;
+    background: rgba(0,0,0,0.7);
+    border-bottom: 1px solid #00ff88;
 }
 
 nav ul {
@@ -37,101 +45,104 @@ nav ul {
     padding: 15px;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
+nav ul li { margin: 0 15px; }
 
 nav ul li a {
-    color: #aaa;
+    color: #00ff88;
     text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    background: #00ff88;
-    color: black;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 120px 20px 60px;
+    padding: 120px 20px 40px;
 }
 
-.hero h1 {
-    font-size: 48px;
+/* TITULO COM FUNDO */
+.title-box {
+    display: inline-block;
+    background: #000;
+    border: 1px solid #00ff88;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+/* TITULO DIGITANDO */
+.matrix-title {
+    font-size: 42px;
     color: #00ff88;
+    border-right: 3px solid #00ff88;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(20, end) forwards, blink 0.8s infinite;
+}
+
+/* ANIMAÇÕES */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 18ch; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
 }
 
 .hero p {
     color: #aaa;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-/* DESTAQUE */
-.destaque {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+/* GRID */
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px;
 }
 
-.section-title {
-    font-size: 24px;
-    margin: 20px 0;
-    color: #00ff88;
-}
-
-/* LISTA HORIZONTAL */
-.scroll {
-    display: flex;
-    overflow-x: auto;
-    gap: 15px;
-    padding-bottom: 10px;
-}
-
-.scroll::-webkit-scrollbar {
-    height: 6px;
-}
-.scroll::-webkit-scrollbar-thumb {
-    background: #00ff88;
-    border-radius: 10px;
-}
-
-/* CARD */
-.card {
-    min-width: 220px;
-    background: #1a1a1a;
+/* BOX */
+.box {
+    background: #000;
+    border: 1px solid #00ff88;
     border-radius: 15px;
-    padding: 15px;
-    border: 1px solid #222;
+    padding: 20px;
     transition: 0.3s;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    border-color: #00ff88;
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #00ff88;
 }
 
-.card h3 {
+/* ITEM */
+.item {
+    margin-top: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #222;
+}
+
+.item:last-child { border-bottom: none; }
+
+.item h3 {
     color: #00ff88;
-    font-size: 16px;
 }
 
-.card p {
-    font-size: 12px;
-    color: #bbb;
-    margin-top: 5px;
+.item a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.item a:hover {
+    color: #00ff88;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 30px;
-    border-top: 1px solid #222;
-    color: #666;
-    margin-top: 40px;
+    color: #00ff88;
 }
 </style>
 
@@ -139,73 +150,96 @@ footer {
 
 <body>
 
-<!-- MENU -->
+<canvas id="matrix"></canvas>
+
+<div class="content">
 
 <nav>
 <ul>
-<li><a href="#">Inicial</a></li>
-<li><a href="#apps">Aplicativos</a></li>
-<li><a href="#jogos">Jogos</a></li>
-<li><a href="#privacidade">Privacidade</a></li>
-<li><a href="#cursos">Cursos</a></li>
+<li><a href="index.html">Inicial</a></li>
+<li><a href="politica.html">Privacidade</a></li>
 </ul>
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
-<h1>🎮 Studio Clyki</h1>
-<p>Apps e jogos que NÃO coletam dados</p>
+
+<div class="title-box">
+<h1 class="matrix-title">🎮 Studio Clyki</h1>
+</div>
+
+<p>Desenvolvimento de app e jogos </p>
+
 </section>
 
-<!-- APPS -->
+<section class="main-grid">
 
-<section id="apps" class="destaque">
-<h2 class="section-title">📱 Aplicativos em destaque</h2>
+<div class="box">
+<h2>🔥 Jogos</h2>
+<div class="item"><h3>🎮<span itemprop="name">Chapeuzinho Vermelho</span></h3>
+  <a href="https://play.google.com/store/apps/details?id=studio.clyki.chapeuzinho">Ver jogo</a></div>
+</div>
+<div class="box">
+<h2>🚀 Apps </h2>
+<div class="item">
+  <h3>🎮 Borracharia 24 horas </h3><a href="https://play.google.com/store/apps/details?id=clyki.com.borracharia24horas">Ver jogo</a></div>
+<div class="item"><h3>📱 Calculadora</h3><a href="#">Abrir app</a></div>
+<div class="item"><h3>📚 Ler Pensamentos</h3><a href="https://play.google.com/store/apps/details?id=studio.clyki.lerpensamentos">Acessar curso</a></div>
+</div>
 
-<div class="scroll">
-
-<div class="card"><h3>Entrega de comida</h3><p>Pedidos simples</p></div>
-<div class="card"><h3>Copa de Futebol De Bairro</h3><p>App esportivo</p></div>
-<div class="card"><h3>Robô - Pet</h3><p>Bichinho virtual</p></div>
-<div class="card"><h3>Calculadora</h3><p>Rápida e simples</p></div>
-<div class="card"><h3>Borracharia 24h</h3><p>Serviço rápido</p></div>
-<div class="card"><h3>Mecânico 24h</h3><p>Assistência</p></div>
-<div class="card"><h3>Casa na Praia</h3><p>Aluguel fácil</p></div>
-<div class="card"><h3>Adestrador</h3><p>Cuidado pet</p></div>
-<div class="card"><h3>Encanador 24h</h3><p>Serviço urgente</p></div>
-<div class="card"><h3>Ler Pensamentos</h3><p>Entretenimento</p></div>
-<div class="card"><h3>História infantil</h3><p>Para crianças</p></div>
-<div class="card"><h3>Biblia moderna</h3><p>Linguagem simples</p></div>
-
+<div class="box">
+<h2>⭐ Cursos </h2>
+<div class="item"><h3>🎮 Play Store</h3><a href="https://www.udemy.com/course/curso-play-store-da-google-aprenda-a-publicar-app/">Ver mais</a></div>
+<div class="item"><h3>📱 Godot </h3><a href="https://go.hotmart.com/H86362865X">Abrir app</a></div>
 </div>
 </section>
-
-<!-- JOGOS -->
-
-<section id="jogos" class="destaque">
-<h2 class="section-title">🎮 Jogos em destaque</h2>
-
-<div class="scroll">
-
-<div class="card"><h3>Sobrevivência</h3><p>Desafios intensos</p></div>
-<div class="card"><h3>Chapeuzinho Vermelho</h3><p>Clássico reinventado</p></div>
-
-</div>
-</section>
-
-<!-- PRIVACIDADE -->
-
-<section id="privacidade" class="destaque">
-<h2 class="section-title">🔒 Privacidade</h2>
-<p>Todos os aplicativos e jogos NÃO coletam dados dos usuários.</p>
-</section>
-
-<!-- FOOTER -->
 
 <footer>
 © 2026 Studio Clyki
 </footer>
+
+</div>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "01";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for (let x = 0; x < columns; x++) drops[x] = 1;
+
+function draw() {
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ff88";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.97) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 33);
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
 
 </body>
 </html>
