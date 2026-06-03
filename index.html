@@ -5,11 +5,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Studio Clyki - Desenvolvimento de Jogos e Aplicativos</title>
+<title>Studio Clyki | Desenvolvimento de Jogos e Aplicativos</title>
 
-<meta name="description" content="Studio Clyki - Desenvolvimento de jogos, aplicativos, cursos e projetos online.">
+<meta name="description" content="Studio Clyki - Desenvolvimento de jogos, aplicativos, servidores online e soluções digitais.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <style>
+
+:root{
+    --bg:#0b1120;
+    --bg2:#111827;
+    --card:#161b22;
+    --blue:#3b82f6;
+    --blue2:#60a5fa;
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+}
+
 *{
     margin:0;
     padding:0;
@@ -21,177 +34,270 @@ html{
 }
 
 body{
-    font-family:Segoe UI,Arial,sans-serif;
-    background:#000;
-    color:#fff;
-    overflow-x:hidden;
-}
-
-#matrix{
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:0;
-}
-
-.content{
-    position:relative;
-    z-index:1;
+    font-family:'Segoe UI',sans-serif;
+    background:var(--bg);
+    color:white;
 }
 
 nav{
     position:fixed;
     top:0;
     width:100%;
-    background:rgba(0,0,0,.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid #00ff88;
     z-index:999;
+    background:rgba(11,17,32,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(59,130,246,.2);
 }
 
-nav ul{
-    list-style:none;
+nav .container{
+    max-width:1200px;
+    margin:auto;
     display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    padding:15px;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
 }
 
-nav li{
-    margin:5px 15px;
-}
-
-nav a{
-    color:#00ff88;
-    text-decoration:none;
+.logo{
+    font-size:22px;
     font-weight:bold;
+    color:var(--blue2);
 }
 
-nav a:hover{
-    color:#fff;
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:var(--blue2);
 }
 
 .hero{
     min-height:100vh;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
-    padding:20px;
+    padding:120px 20px 80px;
+    background:
+    radial-gradient(circle at top,#1e3a8a 0%,transparent 40%),
+    linear-gradient(180deg,#0b1120,#111827);
 }
 
-.logo-box{
-    background:#000;
-    border:1px solid #00ff88;
-    padding:20px 40px;
-    border-radius:15px;
-    box-shadow:0 0 25px #00ff88;
+.hero-content{
+    max-width:900px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid var(--blue);
+    border-radius:30px;
+    color:var(--blue2);
+    margin-bottom:25px;
 }
 
 .hero h1{
-    font-size:60px;
-    color:#00ff88;
+    font-size:64px;
+    margin-bottom:20px;
 }
 
 .hero p{
-    margin-top:20px;
-    max-width:700px;
-    color:#ccc;
-    font-size:20px;
+    color:var(--muted);
+    font-size:22px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    margin-top:30px;
     padding:15px 30px;
-    border-radius:8px;
+    border-radius:10px;
     text-decoration:none;
     font-weight:bold;
-    background:#00ff88;
-    color:#000;
+    transition:.3s;
 }
 
-.btn:hover{
+.btn-primary{
+    background:var(--blue);
+    color:white;
+}
+
+.btn-primary:hover{
     transform:translateY(-3px);
 }
 
-.section{
+.btn-outline{
+    border:1px solid var(--blue);
+    color:var(--blue2);
+}
+
+.btn-outline:hover{
+    background:var(--blue);
+    color:white;
+}
+
+section{
     max-width:1200px;
     margin:auto;
-    padding:80px 20px;
+    padding:90px 20px;
 }
 
 .section-title{
     text-align:center;
-    color:#00ff88;
-    margin-bottom:40px;
-    font-size:36px;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.section-sub{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:50px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid #243244;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+}
+
+.stat h3{
+    font-size:42px;
+    color:var(--blue2);
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:25px;
 }
 
 .card{
-    background:rgba(0,0,0,.85);
-    border:1px solid #00ff88;
-    border-radius:15px;
-    padding:25px;
+    background:var(--card);
+    border:1px solid #243244;
+    border-radius:18px;
+    overflow:hidden;
     transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 25px #00ff88;
+    transform:translateY(-6px);
+    box-shadow:0 0 30px rgba(59,130,246,.2);
+}
+
+.card-image{
+    height:180px;
+    background:
+    linear-gradient(135deg,#1e3a8a,#2563eb);
+}
+
+.card-body{
+    padding:25px;
 }
 
 .card h3{
-    color:#00ff88;
     margin-bottom:15px;
+    color:var(--blue2);
 }
 
 .card p{
-    color:#ccc;
-    line-height:1.7;
+    color:var(--muted);
 }
 
 .card a{
     display:inline-block;
     margin-top:15px;
-    color:#00ff88;
+    color:var(--blue2);
     text-decoration:none;
     font-weight:bold;
 }
 
-.highlight{
-    background:linear-gradient(135deg,#001a0d,#00331a);
-    border:2px solid #00ff88;
+.server-box{
+    background:
+    linear-gradient(
+    135deg,
+    #111827,
+    #1e3a8a
+    );
+
+    border-radius:25px;
+    padding:60px;
+    text-align:center;
+    border:1px solid rgba(96,165,250,.3);
+}
+
+.server-box h2{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.server-box p{
+    max-width:800px;
+    margin:auto;
+    color:#cbd5e1;
+    margin-bottom:30px;
+}
+
+.about{
+    background:var(--card);
+    border-radius:20px;
+    padding:50px;
+    text-align:center;
+}
+
+.about p{
+    max-width:800px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.8;
 }
 
 footer{
+    background:#0a0f1b;
+    border-top:1px solid #1e293b;
     text-align:center;
-    padding:40px;
-    border-top:1px solid #00ff88;
-    color:#aaa;
+    padding:50px 20px;
+}
+
+footer p{
+    color:var(--muted);
 }
 
 .social{
-    margin-top:15px;
+    margin:20px 0;
 }
 
 .social a{
-    color:#00ff88;
-    margin:0 10px;
+    color:var(--blue2);
     text-decoration:none;
+    margin:0 12px;
 }
 
 @media(max-width:768px){
 
 .hero h1{
-    font-size:40px;
+    font-size:42px;
 }
 
 .hero p{
@@ -199,56 +305,140 @@ footer{
 }
 
 .section-title{
-    font-size:28px;
+    font-size:32px;
+}
+
+.server-box{
+    padding:40px 25px;
+}
+
+.server-box h2{
+    font-size:32px;
+}
+
+.menu{
+    display:none;
 }
 
 }
+
 </style>
 
 </head>
 
 <body>
 
-<canvas id="matrix"></canvas>
-
-<div class="content">
-
 <nav>
-<ul>
-<li><a href="#">Início</a></li>
-<li><a href="#jogos">Jogos</a></li>
-<li><a href="#apps">Apps</a></li>
-<li><a href="#servidores">Servidores</a></li>
-<li><a href="#cursos">Cursos</a></li>
-</ul>
+
+<div class="container">
+
+<div class="logo">
+🎮 Studio Clyki
+</div>
+
+<div class="menu">
+<a href="#jogos">Jogos</a>
+<a href="#apps">Apps</a>
+<a href="#servidores">Servidores</a>
+<a href="#cursos">Cursos</a>
+</div>
+
+</div>
+
 </nav>
 
 <section class="hero">
 
-<div class="logo-box">
-<h1>🎮 Studio Clyki</h1>
+<div class="hero-content">
+
+<div class="badge">
+Studio Independente de Desenvolvimento
 </div>
 
+<h1>
+Criando Jogos, Apps e Projetos Online
+</h1>
+
 <p>
-Desenvolvimento de jogos, aplicativos e soluções digitais.
-Criando experiências para jogadores e comunidades online.
+A Studio Clyki desenvolve jogos, aplicativos,
+sistemas web e soluções para comunidades online.
+Transformamos ideias em experiências digitais.
 </p>
 
-<a class="btn" href="#jogos">Conhecer Projetos</a>
+<div class="buttons">
+
+<a href="#jogos" class="btn btn-primary">
+Ver Projetos
+</a>
+
+<a href="https://studioclyki.github.io/Files-Priston-Tale-/" class="btn btn-outline">
+Priston Tale Files
+</a>
+
+</div>
+
+</div>
 
 </section>
 
-<section class="section" id="jogos">
+<section>
 
-<h2 class="section-title">🎮 Jogos</h2>
+<h2 class="section-title">
+📊 Studio em Números
+</h2>
+
+<p class="section-sub">
+Projetos em constante evolução
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<h3>3+</h3>
+<p>Projetos Publicados</p>
+</div>
+
+<div class="stat">
+<h3>2+</h3>
+<p>Aplicativos</p>
+</div>
+
+<div class="stat">
+<h3>1+</h3>
+<p>Projeto Online</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Independente</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="jogos">
+
+<h2 class="section-title">
+🎮 Jogos
+</h2>
+
+<p class="section-sub">
+Projetos desenvolvidos pela Studio Clyki
+</p>
 
 <div class="grid">
 
 <div class="card">
+
+<div class="card-image"></div>
+
+<div class="card-body">
+
 <h3>Chapeuzinho Vermelho</h3>
 
 <p>
-Jogo desenvolvido pela Studio Clyki para Android.
+Jogo para Android desenvolvido pela Studio Clyki.
 </p>
 
 <a href="https://play.google.com/store/apps/details?id=studio.clyki.chapeuzinho">
@@ -259,28 +449,48 @@ Ver na Play Store →
 
 </div>
 
+</div>
+
 </section>
 
-<section class="section" id="apps">
+<section id="apps">
 
-<h2 class="section-title">📱 Aplicativos</h2>
+<h2 class="section-title">
+📱 Aplicativos
+</h2>
+
+<p class="section-sub">
+Ferramentas e soluções digitais
+</p>
 
 <div class="grid">
 
 <div class="card">
+
+<div class="card-image"></div>
+
+<div class="card-body">
+
 <h3>Borracharia 24 Horas</h3>
 
 <p>
-Aplicativo para localizar serviços de borracharia.
+Aplicativo para encontrar serviços de borracharia.
 </p>
 
 <a href="https://play.google.com/store/apps/details?id=clyki.com.borracharia24horas">
-Abrir →
+Acessar →
 </a>
 
 </div>
 
+</div>
+
 <div class="card">
+
+<div class="card-image"></div>
+
+<div class="card-body">
+
 <h3>Ler Pensamentos</h3>
 
 <p>
@@ -288,8 +498,10 @@ Aplicativo de entretenimento disponível na Play Store.
 </p>
 
 <a href="https://play.google.com/store/apps/details?id=studio.clyki.lerpensamentos">
-Abrir →
+Acessar →
 </a>
+
+</div>
 
 </div>
 
@@ -297,43 +509,51 @@ Abrir →
 
 </section>
 
-<section class="section" id="servidores">
+<section id="servidores">
 
-<h2 class="section-title">⚔️ Servidores Online</h2>
+<div class="server-box">
 
-<div class="grid">
-
-<div class="card highlight">
-
-<h3>Priston Tale Files</h3>
+<h2>
+⚔️ Priston Tale Files
+</h2>
 
 <p>
-Files premium, sistemas exclusivos, suporte técnico e
-desenvolvimento para servidores de Priston Tale.
+Files premium, sistemas exclusivos,
+suporte técnico e desenvolvimento
+para servidores de Priston Tale.
 </p>
 
-<a href="https://studioclyki.github.io/Files-Priston-Tale-/">
-Acessar Projeto →
-</a>
+<a href="https://studioclyki.github.io/Files-Priston-Tale-/"
+class="btn btn-primary">
 
-</div>
+Acessar Projeto
+
+</a>
 
 </div>
 
 </section>
 
-<section class="section" id="cursos">
+<section id="cursos">
 
-<h2 class="section-title">📚 Cursos</h2>
+<h2 class="section-title">
+📚 Cursos
+</h2>
+
+<p class="section-sub">
+Aprenda desenvolvimento e publicação de apps
+</p>
 
 <div class="grid">
 
 <div class="card">
 
-<h3>Curso Play Store</h3>
+<div class="card-body">
+
+<h3>Google Play Store</h3>
 
 <p>
-Aprenda a publicar aplicativos na Google Play Store.
+Aprenda a publicar aplicativos na Play Store.
 </p>
 
 <a href="https://www.udemy.com/course/curso-play-store-da-google-aprenda-a-publicar-app/">
@@ -342,12 +562,16 @@ Ver Curso →
 
 </div>
 
+</div>
+
 <div class="card">
+
+<div class="card-body">
 
 <h3>Curso Godot</h3>
 
 <p>
-Aprenda desenvolvimento de jogos com a engine Godot.
+Desenvolvimento de jogos utilizando a engine Godot.
 </p>
 
 <a href="https://go.hotmart.com/H86362865X">
@@ -358,79 +582,50 @@ Ver Curso →
 
 </div>
 
+</div>
+
+</section>
+
+<section>
+
+<div class="about">
+
+<h2 class="section-title">
+🚀 Sobre a Studio Clyki
+</h2>
+
+<p>
+Somos um estúdio independente focado no desenvolvimento
+de jogos, aplicativos e soluções digitais. Nosso objetivo
+é criar projetos inovadores, úteis e divertidos para
+jogadores, usuários e comunidades online.
+</p>
+
+</div>
+
 </section>
 
 <footer>
 
-<h3>Studio Clyki</h3>
-
-<p>Desenvolvimento de Jogos, Apps e Projetos Online.</p>
+<h3>🎮 Studio Clyki</h3>
 
 <div class="social">
-<a href="https://github.com/studioclyki">GitHub</a>
+
+<a href="https://github.com/studioclyki">
+GitHub
+</a>
+
+<a href="https://studioclyki.github.io/Files-Priston-Tale-/">
+Priston Tale Files
+</a>
+
 </div>
 
-<p style="margin-top:20px;">
-© 2026 Studio Clyki
+<p>
+© 2026 Studio Clyki - Todos os direitos reservados
 </p>
 
 </footer>
-
-</div>
-
-<script>
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const letters = "01";
-const fontSize = 14;
-const columns = canvas.width / fontSize;
-const drops = [];
-
-for(let i=0;i<columns;i++){
-    drops[i]=1;
-}
-
-function draw(){
-    ctx.fillStyle="rgba(0,0,0,0.05)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-
-    ctx.fillStyle="#00ff88";
-    ctx.font=fontSize+"px monospace";
-
-    for(let i=0;i<drops.length;i++){
-
-        const text=
-        letters[Math.floor(Math.random()*letters.length)];
-
-        ctx.fillText(
-            text,
-            i*fontSize,
-            drops[i]*fontSize
-        );
-
-        if(
-            drops[i]*fontSize>canvas.height
-            &&
-            Math.random()>0.97
-        ){
-            drops[i]=0;
-        }
-
-        drops[i]++;
-    }
-}
-
-setInterval(draw,33);
-
-window.addEventListener("resize",()=>{
-    canvas.width=window.innerWidth;
-    canvas.height=window.innerHeight;
-});
-</script>
 
 </body>
 </html>
