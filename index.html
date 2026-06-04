@@ -1,82 +1,631 @@
-<section id="apps">
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Studio Clyki | Desenvolvimento de Jogos e Aplicativos</title>
+
+<meta name="description" content="Studio Clyki - Desenvolvimento de jogos, aplicativos, servidores online e soluções digitais.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<style>
+
+:root{
+    --bg:#0b1120;
+    --bg2:#111827;
+    --card:#161b22;
+    --blue:#3b82f6;
+    --blue2:#60a5fa;
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:var(--bg);
+    color:white;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    background:rgba(11,17,32,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(59,130,246,.2);
+}
+
+nav .container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:var(--blue2);
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:var(--blue2);
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 20px 80px;
+    background:
+    radial-gradient(circle at top,#1e3a8a 0%,transparent 40%),
+    linear-gradient(180deg,#0b1120,#111827);
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid var(--blue);
+    border-radius:30px;
+    color:var(--blue2);
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:64px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:22px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 30px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--blue);
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    border:1px solid var(--blue);
+    color:var(--blue2);
+}
+
+.btn-outline:hover{
+    background:var(--blue);
+    color:white;
+}
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:90px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.section-sub{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:50px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid #243244;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+}
+
+.stat h3{
+    font-size:42px;
+    color:var(--blue2);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid #243244;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 30px rgba(59,130,246,.2);
+}
+
+.card-image{
+    height:180px;
+    background:
+    linear-gradient(135deg,#1e3a8a,#2563eb);
+}
+
+.card-body{
+    padding:25px;
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:var(--blue2);
+}
+
+.card p{
+    color:var(--muted);
+}
+
+.card a{
+    display:inline-block;
+    margin-top:15px;
+    color:var(--blue2);
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.server-box{
+    background:
+    linear-gradient(
+    135deg,
+    #111827,
+    #1e3a8a
+    );
+
+    border-radius:25px;
+    padding:60px;
+    text-align:center;
+    border:1px solid rgba(96,165,250,.3);
+}
+
+.server-box h2{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.server-box p{
+    max-width:800px;
+    margin:auto;
+    color:#cbd5e1;
+    margin-bottom:30px;
+}
+
+.about{
+    background:var(--card);
+    border-radius:20px;
+    padding:50px;
+    text-align:center;
+}
+
+.about p{
+    max-width:800px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+footer{
+    background:#0a0f1b;
+    border-top:1px solid #1e293b;
+    text-align:center;
+    padding:50px 20px;
+}
+
+footer p{
+    color:var(--muted);
+}
+
+.social{
+    margin:20px 0;
+}
+
+.social a{
+    color:var(--blue2);
+    text-decoration:none;
+    margin:0 12px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.section-title{
+    font-size:32px;
+}
+
+.server-box{
+    padding:40px 25px;
+}
+
+.server-box h2{
+    font-size:32px;
+}
+
+.menu{
+    display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="container">
+
+<div class="logo">
+🎮 Studio Clyki
+</div>
+
+<div class="menu">
+<a href="#jogos">Jogos</a>
+<a href="#apps">Apps</a>
+<a href="#servidores">Servidores</a>
+<a href="#cursos">Cursos</a>
+</div>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+Studio Independente de Desenvolvimento
+</div>
+
+<h1>
+Criando Jogos, Apps e Projetos Online
+</h1>
+
+<p>
+A Studio Clyki desenvolve jogos, aplicativos,
+sistemas web e soluções para comunidades online.
+Transformamos ideias em experiências digitais.
+</p>
+
+<div class="buttons">
+
+<a href="#jogos" class="btn btn-primary">
+Ver Projetos
+</a>
+
+<a href="https://studioclyki.github.io/Files-Priston-Tale-/" class="btn btn-outline">
+Priston Tale Files
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
 
 <h2 class="section-title">
-📱 Aplicativos Publicados
+📊 Studio em Números
 </h2>
 
 <p class="section-sub">
-Projetos disponíveis na Google Play Store
+Projetos em constante evolução
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<h3>3+</h3>
+<p>Projetos Publicados</p>
+</div>
+
+<div class="stat">
+<h3>2+</h3>
+<p>Aplicativos</p>
+</div>
+
+<div class="stat">
+<h3>1+</h3>
+<p>Projeto Online</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Independente</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="jogos">
+
+<h2 class="section-title">
+🎮 Jogos
+</h2>
+
+<p class="section-sub">
+Projetos desenvolvidos pela Studio Clyki
 </p>
 
 <div class="grid">
 
 <div class="card">
-<div class="card-body">
-<h3>🚗 Entrega de Comida</h3>
-<p>Aplicativo Android.</p>
-<a href="#">Ver na Play Store →</a>
-</div>
-</div>
 
-<div class="card">
-<div class="card-body">
-<h3>⚽ Copa de Futebol de Bairro</h3>
-<p>Aplicativo Android.</p>
-<a href="#">Ver na Play Store →</a>
-</div>
-</div>
+<div class="card-image"></div>
 
-<div class="card">
 <div class="card-body">
-<h3>🧠 Ler Pensamentos</h3>
-<p>Aplicativo Android.</p>
-<a href="https://play.google.com/store/apps/details?id=studio.clyki.lerpensamentos">
+
+<h3>Chapeuzinho Vermelho</h3>
+
+<p>
+Jogo para Android desenvolvido pela Studio Clyki.
+</p>
+
+<a href="https://play.google.com/store/apps/details?id=studio.clyki.chapeuzinho">
 Ver na Play Store →
 </a>
-</div>
-</div>
 
-<div class="card">
-<div class="card-body">
-<h3>🔧 Encanador 24 Horas</h3>
-<p>Aplicativo Android.</p>
-<a href="#">Ver na Play Store →</a>
-</div>
-</div>
-
-<div class="card">
-<div class="card-body">
-<h3>🏖️ Casa para Alugar na Praia</h3>
-<p>Aplicativo Android.</p>
-<a href="#">Ver na Play Store →</a>
-</div>
-</div>
-
-<div class="card">
-<div class="card-body">
-<h3>🚘 Mecânico 24 Horas</h3>
-<p>Aplicativo Android.</p>
-<a href="#">Ver na Play Store →</a>
-</div>
-</div>
-
-<div class="card">
-<div class="card-body">
-<h3>🛞 Borracharia 24 Horas</h3>
-<p>Aplicativo Android.</p>
-<a href="https://play.google.com/store/apps/details?id=clyki.com.borracharia24horas">
-Ver na Play Store →
-</a>
-</div>
-</div>
-
-<div class="card">
-<div class="card-body">
-<h3>🧮 Calculadora</h3>
-<p>Aplicativo Android.</p>
-<a href="#">Ver na Play Store →</a>
-</div>
 </div>
 
 </div>
+
+</div>
+
 </section>
+
+<section id="apps">
+
+<h2 class="section-title">
+📱 Aplicativos
+</h2>
+
+<p class="section-sub">
+Ferramentas e soluções digitais
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="card-image"></div>
+
+<div class="card-body">
+
+<h3>Borracharia 24 Horas</h3>
+
+<p>
+Aplicativo para encontrar serviços de borracharia.
+</p>
+
+<a href="https://play.google.com/store/apps/details?id=clyki.com.borracharia24horas">
+Acessar →
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-image"></div>
+
+<div class="card-body">
+
+<h3>Ler Pensamentos</h3>
+
+<p>
+Aplicativo de entretenimento disponível na Play Store.
+</p>
+
+<a href="https://play.google.com/store/apps/details?id=studio.clyki.lerpensamentos">
+Acessar →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="servidores">
+
+<div class="server-box">
+
+<h2>
+⚔️ Priston Tale Files
+</h2>
+
+<p>
+Files premium, sistemas exclusivos,
+suporte técnico e desenvolvimento
+para servidores de Priston Tale.
+</p>
+
+<a href="https://studioclyki.github.io/Files-Priston-Tale-/"
+class="btn btn-primary">
+
+Acessar Projeto
+
+</a>
+
+</div>
+
+</section>
+
+<section id="cursos">
+
+<h2 class="section-title">
+📚 Cursos
+</h2>
+
+<p class="section-sub">
+Aprenda desenvolvimento e publicação de apps
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="card-body">
+
+<h3>Google Play Store</h3>
+
+<p>
+Aprenda a publicar aplicativos na Play Store.
+</p>
+
+<a href="https://www.udemy.com/course/curso-play-store-da-google-aprenda-a-publicar-app/">
+Ver Curso →
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-body">
+
+<h3>Curso Godot</h3>
+
+<p>
+Desenvolvimento de jogos utilizando a engine Godot.
+</p>
+
+<a href="https://go.hotmart.com/H86362865X">
+Ver Curso →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="about">
+
+<h2 class="section-title">
+🚀 Sobre a Studio Clyki
+</h2>
+
+<p>
+Somos um estúdio independente focado no desenvolvimento
+de jogos, aplicativos e soluções digitais. Nosso objetivo
+é criar projetos inovadores, úteis e divertidos para
+jogadores, usuários e comunidades online.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>🎮 Studio Clyki</h3>
+
+<div class="social">
+
+<a href="https://github.com/studioclyki">
+GitHub
+</a>
+
+<a href="https://studioclyki.github.io/Files-Priston-Tale-/">
+Priston Tale Files
+</a>
+
+</div>
+
+<p>
+© 2026 Studio Clyki - Todos os direitos reservados
+</p>
+
+</footer>
+
+</body>
+</html>
